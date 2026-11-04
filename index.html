@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tashrifu Fashion - Garments & Fashion House | Jalalpur Bazar, Melandoho</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts (Poppins & Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fashion: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            500: '#e11d48',
+                            600: '#be123c',
+                            700: '#9f1239',
+                            800: '#881337',
+                            900: '#4c0519',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8fafc;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #be123c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9f1239;
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-fashion-900 text-white text-xs sm:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center gap-1">
+                    <i class="fa-solid fa-phone text-gold-400"></i>
+                    <a href="tel:01781877034" class="hover:underline font-medium">01781877034</a>
+                </span>
+                <span class="hidden md:inline text-fashion-700">|</span>
+                <span class="hidden md:flex items-center gap-1">
+                    <i class="fa-solid fa-envelope text-gold-400"></i>
+                    <a href="mailto:freelancerzaim2020@gmail.com" class="hover:underline">freelancerzaim2020@gmail.com</a>
+                </span>
+                <span class="hidden lg:inline text-fashion-700">|</span>
+                <span class="hidden lg:flex items-center gap-1 text-slate-200">
+                    <i class="fa-solid fa-location-dot text-gold-400"></i>
+                    Jalalpur Bazar, Melandoho, Jamalpur
+                </span>
+            </div>
+            <div class="flex items-center space-x-3 text-xs">
+                <span class="bg-fashion-600 px-2.5 py-0.5 rounded-full text-white font-semibold">New Eid & Festival Collection Live!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER / NAVBAR -->
+    <header class="bg-white/95 backdrop-blur-md shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-gradient-to-tr from-fashion-700 to-fashion-500 rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-fashion-500/30 group-hover:scale-105 transition duration-200">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold text-slate-900 tracking-tight flex items-center gap-1">
+                            Tashrifu <span class="text-fashion-600">Fashion</span>
+                        </span>
+                        <p class="text-[11px] text-slate-500 font-semibold tracking-wider uppercase -mt-1">Garments & Fashion House</p>
+                    </div>
+                </a>
+
+                <!-- Search Bar (Desktop) -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search shirts, sarees, panjabi, dresses..." 
+                            class="w-full bg-slate-100 text-sm border-2 border-transparent focus:border-fashion-500 focus:bg-white rounded-full py-2.5 pl-4 pr-10 outline-none transition duration-200">
+                        <button class="absolute right-3 top-2.5 text-slate-400 hover:text-fashion-600">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Action Icons -->
+                <div class="flex items-center space-x-4">
+                    <!-- WhatsApp Order Button -->
+                    <a href="https://wa.me/8801781877034" target="_blank" class="hidden sm:flex items-center gap-2 bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 font-semibold text-xs px-3.5 py-2.5 rounded-xl transition">
+                        <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
+                        <span>Order on WhatsApp</span>
+                    </a>
+
+                    <!-- Cart Icon Button -->
+                    <button id="cartBtn" onclick="toggleCart()" class="relative p-2 text-slate-700 hover:text-fashion-600 focus:outline-none transition">
+                        <div class="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center hover:bg-fashion-50">
+                            <i class="fa-solid fa-bag-shopping text-xl text-slate-700"></i>
+                        </div>
+                        <span id="cartCount" class="absolute -top-1 -right-1 bg-fashion-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-lg">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-700 hover:text-fashion-600 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-8 py-3 border-t border-slate-100 text-sm font-semibold text-slate-700">
+                <a href="#home" class="text-fashion-600 hover:text-fashion-700">Home</a>
+                <a href="#categories" class="hover:text-fashion-600 transition">Categories</a>
+                <a href="#products" class="hover:text-fashion-600 transition">New Arrivals</a>
+                <a href="#features" class="hover:text-fashion-600 transition">Why Tashrifu</a>
+                <a href="#contact" class="hover:text-fashion-600 transition">Store Info & Location</a>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-3">
+            <div class="mb-3">
+                <input type="text" onkeyup="searchProducts()" placeholder="Search fashion products..." class="w-full bg-slate-100 text-sm border rounded-lg py-2 px-3">
+            </div>
+            <a href="#home" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-fashion-600">Home</a>
+            <a href="#categories" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-fashion-600">Categories</a>
+            <a href="#products" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-fashion-600">New Arrivals</a>
+            <a href="#features" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-fashion-600">Why Tashrifu</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-fashion-600">Contact & Map</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative bg-gradient-to-r from-slate-900 via-fashion-900 to-slate-900 text-white overflow-hidden py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6 text-center md:text-left z-10">
+                    <span class="inline-block bg-gold-500/20 text-gold-400 border border-gold-500/30 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider backdrop-blur-md">
+                        Premier Garments & Fashion House
+                    </span>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Redefine Your Style with <span class="text-transparent bg-clip-text bg-gradient-to-r from-fashion-500 to-gold-400">Tashrifu Fashion</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto md:mx-0 font-light">
+                        Discover premium quality clothing for Men, Women, and Kids in Jalalpur Bazar, Melandoho. Elegant festive wear, trendy casual outfits, and everyday fashion at unmatched prices.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-2">
+                        <a href="#products" class="bg-gradient-to-r from-fashion-600 to-fashion-500 hover:from-fashion-700 hover:to-fashion-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-fashion-600/40 hover:shadow-xl transition text-center transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-bag-shopping mr-2"></i> Shop Collection Now
+                        </a>
+                        <a href="https://wa.me/8801781877034" target="_blank" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-6 py-4 rounded-xl transition text-center backdrop-blur-md flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i> WhatsApp Direct Order
+                        </a>
+                    </div>
+                    
+                    <!-- Highlights -->
+                    <div class="pt-8 grid grid-cols-3 gap-4 text-center border-t border-white/10 text-xs sm:text-sm">
+                        <div>
+                            <p class="font-extrabold text-gold-400 text-base sm:text-xl">100% Guaranteed</p>
+                            <p class="text-slate-400">Premium Fabrics</p>
+                        </div>
+                        <div>
+                            <p class="font-extrabold text-gold-400 text-base sm:text-xl">Fast Delivery</p>
+                            <p class="text-slate-400">Melandoho Area</p>
+                        </div>
+                        <div>
+                            <p class="font-extrabold text-gold-400 text-base sm:text-xl">Best Rates</p>
+                            <p class="text-slate-400">Affordable Style</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Showcase -->
+                <div class="relative flex justify-center">
+                    <div class="w-full max-w-md bg-white/5 p-3 rounded-3xl backdrop-blur-lg border border-white/10 shadow-2xl relative">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" 
+                             alt="Tashrifu Fashion Showcase" 
+                             class="rounded-2xl object-cover w-full h-80 sm:h-96 shadow-md"
+                             onerror="this.src='https://placehold.co/600x800/be123c/ffffff?text=Tashrifu+Fashion+Collection'">
+                        <div class="absolute -bottom-4 -right-4 bg-white text-slate-900 p-4 rounded-2xl shadow-2xl border border-slate-100 flex items-center gap-3">
+                            <div class="w-12 h-12 bg-fashion-100 rounded-xl flex items-center justify-center text-fashion-600 font-bold text-xl">
+                                <i class="fa-solid fa-crown"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-extrabold">Exclusive Designs</p>
+                                <p class="text-xs text-slate-500">Jalalpur Bazar Store</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED CATEGORIES -->
+    <section id="categories" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Explore Collections</h2>
+                <p class="text-slate-500 mt-2 text-sm">Browse our curated clothing categories designed for every occasion.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                <!-- Cat 1 -->
+                <button onclick="filterCategory('men')" class="group cursor-pointer rounded-2xl overflow-hidden border border-slate-100 bg-slate-50 hover:shadow-xl transition duration-300 text-left">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=600&q=80" alt="Men's Collection" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 text-white font-bold text-base">Men's Wear</span>
+                    </div>
+                    <div class="p-3 text-xs text-slate-500 flex justify-between items-center">
+                        <span>Shirts, Panjabi, Pants</span>
+                        <i class="fa-solid fa-arrow-right text-fashion-600 group-hover:translate-x-1 transition"></i>
+                    </div>
+                </button>
+
+                <!-- Cat 2 -->
+                <button onclick="filterCategory('women')" class="group cursor-pointer rounded-2xl overflow-hidden border border-slate-100 bg-slate-50 hover:shadow-xl transition duration-300 text-left">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80" alt="Women's Collection" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 text-white font-bold text-base">Women's Wear</span>
+                    </div>
+                    <div class="p-3 text-xs text-slate-500 flex justify-between items-center">
+                        <span>Sarees, Three Piece, Kurtis</span>
+                        <i class="fa-solid fa-arrow-right text-fashion-600 group-hover:translate-x-1 transition"></i>
+                    </div>
+                </button>
+
+                <!-- Cat 3 -->
+                <button onclick="filterCategory('kids')" class="group cursor-pointer rounded-2xl overflow-hidden border border-slate-100 bg-slate-50 hover:shadow-xl transition duration-300 text-left">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=600&q=80" alt="Kids Collection" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 text-white font-bold text-base">Kids' Corner</span>
+                    </div>
+                    <div class="p-3 text-xs text-slate-500 flex justify-between items-center">
+                        <span>Cute & Trendy Outfits</span>
+                        <i class="fa-solid fa-arrow-right text-fashion-600 group-hover:translate-x-1 transition"></i>
+                    </div>
+                </button>
+
+                <!-- Cat 4 -->
+                <button onclick="filterCategory('festive')" class="group cursor-pointer rounded-2xl overflow-hidden border border-slate-100 bg-slate-50 hover:shadow-xl transition duration-300 text-left">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80" alt="Festive Wear" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 text-white font-bold text-base">Traditional & Eid</span>
+                    </div>
+                    <div class="p-3 text-xs text-slate-500 flex justify-between items-center">
+                        <span>Exclusive Festival Wear</span>
+                        <i class="fa-solid fa-arrow-right text-fashion-600 group-hover:translate-x-1 transition"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS STOREFRONT -->
+    <section id="products" class="py-16 bg-slate-100/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">New Fashion Arrivals</h2>
+                    <p class="text-slate-500 mt-1 text-sm">Choose from our latest stylish catalog at Tashrifu Fashion.</p>
+                </div>
+                
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 text-xs sm:text-sm">
+                    <button onclick="filterCategory('all')" class="filter-btn active bg-fashion-600 text-white font-semibold px-4 py-2 rounded-xl transition shadow-md shadow-fashion-600/20">All Items</button>
+                    <button onclick="filterCategory('men')" class="filter-btn bg-white text-slate-600 hover:bg-slate-200 font-semibold px-4 py-2 rounded-xl transition border border-slate-200">Men</button>
+                    <button onclick="filterCategory('women')" class="filter-btn bg-white text-slate-600 hover:bg-slate-200 font-semibold px-4 py-2 rounded-xl transition border border-slate-200">Women</button>
+                    <button onclick="filterCategory('kids')" class="filter-btn bg-white text-slate-600 hover:bg-slate-200 font-semibold px-4 py-2 rounded-xl transition border border-slate-200">Kids</button>
+                    <button onclick="filterCategory('festive')" class="filter-btn bg-white text-slate-600 hover:bg-slate-200 font-semibold px-4 py-2 rounded-xl transition border border-slate-200">Festive</button>
+                </div>
+            </div>
+
+            <!-- Product Cards Grid -->
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- JavaScript Product Injection -->
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUE PROPOSITION / FEATURES -->
+    <section id="features" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-fashion-200 transition">
+                    <div class="w-14 h-14 bg-fashion-100 text-fashion-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-vest"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Premium Quality</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Handpicked fabrics and superior stitching for maximum comfort and durability.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-fashion-200 transition">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Local Delivery</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Fast home delivery and easy shop pickup in Jalalpur Bazar & Melandoho area.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-fashion-200 transition">
+                    <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Affordable Pricing</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Top-tier fashion house outfits at reasonable everyday budget prices.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-fashion-200 transition">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Easy WhatsApp Order</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Instant order placement directly via WhatsApp with zero hassle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORE DETAILS & CONTACT SECTION -->
+    <section id="contact" class="py-16 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Visit Tashrifu Fashion Store</h2>
+                <p class="text-slate-500 mt-2 text-sm">We welcome you to try our stylish garments in person at Jalalpur Bazar.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Info Cards -->
+                <div class="lg:col-span-1 space-y-4">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex items-start gap-4">
+                        <div class="w-12 h-12 bg-fashion-100 rounded-xl flex items-center justify-center text-fashion-600 text-xl flex-shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base">Store Address</h3>
+                            <p class="text-sm text-slate-600 mt-1">Holding No: 00, Shop No: 00<br>Jalalpur Bazar, Melandoho<br>Jamalpur, Bangladesh</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex items-start gap-4">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 text-xl flex-shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base">Phone & WhatsApp</h3>
+                            <p class="text-sm text-slate-600 mt-1">
+                                Call: <a href="tel:01781877034" class="font-semibold text-fashion-600 hover:underline">01781877034</a><br>
+                                WhatsApp: <a href="https://wa.me/8801781877034" target="_blank" class="font-semibold text-emerald-600 hover:underline">01781877034</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-xl flex-shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base">Business Email</h3>
+                            <p class="text-sm text-slate-600 mt-1">
+                                <a href="mailto:freelancerzaim2020@gmail.com" class="text-slate-700 hover:text-fashion-600">freelancerzaim2020@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Map Frame -->
+                <div class="lg:col-span-2 bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div class="w-full h-72 sm:h-80 bg-slate-200 rounded-xl overflow-hidden">
+                        <iframe 
+                            class="w-full h-full border-0"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14488.585721111075!2d89.8274151323381!3d24.961099684360408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fd7a0b5b155555%3A0x6bd77a7df365021!2sMelandaha%20Bazar!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-2">
+                        <span class="flex items-center gap-1">
+                            <i class="fa-solid fa-clock text-fashion-600"></i> Store Opening Hours: Saturday - Thursday (9:00 AM - 9:30 PM)
+                        </span>
+                        <a href="https://maps.google.com/?q=Melandoho+Jamalpur" target="_blank" class="text-fashion-600 font-semibold hover:underline">
+                            Open Location on Google Maps <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-300 pt-12 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+                
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-fashion-600 rounded-lg flex items-center justify-center text-white font-bold">
+                            <i class="fa-solid fa-shirt"></i>
+                        </div>
+                        <span class="text-xl font-extrabold text-white">Tashrifu Fashion</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Tashrifu Fashion is your premier garments and fashion house in Jalalpur Bazar, Melandoho, Jamalpur. Bringing you trendy outfits, festive wear, and high-grade apparel.
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#" class="w-8 h-8 bg-slate-800 hover:bg-fashion-600 text-slate-400 hover:text-white rounded-full flex items-center justify-center transition">
+                            <i class="fa-brands fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="https://wa.me/8801781877034" target="_blank" class="w-8 h-8 bg-slate-800 hover:bg-emerald-600 text-slate-400 hover:text-white rounded-full flex items-center justify-center transition">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                        </a>
+                        <a href="mailto:freelancerzaim2020@gmail.com" class="w-8 h-8 bg-slate-800 hover:bg-red-600 text-slate-400 hover:text-white rounded-full flex items-center justify-center transition">
+                            <i class="fa-solid fa-envelope text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 border-l-4 border-fashion-500 pl-2">Navigation</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#home" class="hover:text-fashion-500 transition">Home</a></li>
+                        <li><a href="#categories" class="hover:text-fashion-500 transition">Collections</a></li>
+                        <li><a href="#products" class="hover:text-fashion-500 transition">New Arrivals</a></li>
+                        <li><a href="#features" class="hover:text-fashion-500 transition">Why Choose Us</a></li>
+                        <li><a href="#contact" class="hover:text-fashion-500 transition">Contact & Location</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 border-l-4 border-fashion-500 pl-2">Fashion Categories</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#products" onclick="filterCategory('men')" class="hover:text-fashion-500 transition">Men's Shirts & Panjabi</a></li>
+                        <li><a href="#products" onclick="filterCategory('women')" class="hover:text-fashion-500 transition">Women's Sarees & Dresses</a></li>
+                        <li><a href="#products" onclick="filterCategory('kids')" class="hover:text-fashion-500 transition">Kids' Clothing</a></li>
+                        <li><a href="#products" onclick="filterCategory('festive')" class="hover:text-fashion-500 transition">Festival & Party Collection</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 border-l-4 border-fashion-500 pl-2">Store Address</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-house text-fashion-500 mt-0.5"></i>
+                            <span>Holding No: 00, Shop No: 00, Jalalpur Bazar, Melandoho, Jamalpur</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-fashion-500"></i>
+                            <a href="tel:01781877034" class="hover:text-white">01781877034</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-fashion-500"></i>
+                            <a href="mailto:freelancerzaim2020@gmail.com" class="hover:text-white">freelancerzaim2020@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-2">
+                <p>&copy; <span id="year"></span> Tashrifu Fashion. All rights reserved.</p>
+                <p>Designed for <span class="text-white font-semibold">Tashrifu Fashion, Jalalpur Melandoho</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART SIDEBAR MODAL -->
+    <div id="cartModal" class="fixed inset-0 z-50 overflow-hidden hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-slate-900 bg-opacity-60 transition-opacity backdrop-blur-sm" onclick="toggleCart()"></div>
+
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                
+                <div class="p-6 bg-fashion-700 text-white flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-bag-shopping text-xl"></i>
+                        <h2 class="text-lg font-bold">Shopping Bag</h2>
+                    </div>
+                    <button onclick="toggleCart()" class="text-white hover:text-slate-200 text-2xl font-bold p-1">
+                        &times;
+                    </button>
+                </div>
+
+                <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-slate-100">
+                    <!-- Dynamic Cart Items -->
+                </div>
+
+                <div class="p-6 bg-slate-50 border-t border-slate-200 space-y-4">
+                    <div class="flex justify-between items-center text-base font-bold text-slate-900">
+                        <span>Total Amount:</span>
+                        <span id="cartSubtotal" class="text-xl text-fashion-600">৳ 0.00</span>
+                    </div>
+
+                    <div class="space-y-2 pt-2">
+                        <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl shadow transition flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Checkout via WhatsApp
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // FASHION PRODUCT DATASET
+        const products = [
+            {
+                id: 1,
+                title: "Premium Men's Cotton Casual Shirt",
+                category: "men",
+                price: 850,
+                oldPrice: 1050,
+                rating: 4.9,
+                reviews: 38,
+                image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=500&q=80",
+                badge: "Hot Seller"
+            },
+            {
+                id: 2,
+                title: "Exclusive Embroidered Designer Panjabi",
+                category: "festive",
+                price: 1650,
+                oldPrice: 1950,
+                rating: 5.0,
+                reviews: 52,
+                image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=500&q=80",
+                badge: "Festive Special"
+            },
+            {
+                id: 3,
+                title: "Traditional Designer Silk Saree",
+                category: "women",
+                price: 2400,
+                oldPrice: 2800,
+                rating: 4.8,
+                reviews: 45,
+                image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=500&q=80",
+                badge: "New"
+            },
+            {
+                id: 4,
+                title: "Women's Stylish Three Piece Suit",
+                category: "women",
+                price: 1850,
+                oldPrice: 2200,
+                rating: 4.7,
+                reviews: 29,
+                image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=500&q=80",
+                badge: "Popular"
+            },
+            {
+                id: 5,
+                title: "Men's Slim Fit Denim Jeans",
+                category: "men",
+                price: 990,
+                oldPrice: 1250,
+                rating: 4.6,
+                reviews: 23,
+                image: "https://images.unsplash.com/photo-1542272604-780c36856d62?auto=format&fit=crop&w=500&q=80",
+                badge: ""
+            },
+            {
+                id: 6,
+                title: "Cute Kids Festive Outfit Set",
+                category: "kids",
+                price: 750,
+                oldPrice: 950,
+                rating: 4.9,
+                reviews: 18,
+                image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=500&q=80",
+                badge: "Kids Favorite"
+            },
+            {
+                id: 7,
+                title: "Women's Elegant Printed Kurti",
+                category: "women",
+                price: 680,
+                oldPrice: 850,
+                rating: 4.6,
+                reviews: 31,
+                image: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?auto=format&fit=crop&w=500&q=80",
+                badge: ""
+            },
+            {
+                id: 8,
+                title: "Men's Stylish Polo T-Shirt",
+                category: "men",
+                price: 450,
+                oldPrice: 580,
+                rating: 4.7,
+                reviews: 64,
+                image: "https://images.unsplash.com/photo-1625910513413-7fc256a42234?auto=format&fit=crop&w=500&q=80",
+                badge: "Best Value"
+            }
+        ];
+
+        let cart = [];
+
+        function escapeQuotes(str) {
+            return (str || '').replace(/'/g, "\\'").replace(/"/g, "&quot;");
+        }
+
+        function renderProducts(items) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <i class="fa-solid fa-shirt text-4xl text-slate-300 mb-3"></i>
+                        <p class="text-slate-500 font-medium">No fashion products found in this category.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            items.forEach(product => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between overflow-hidden group";
+                
+                const safeTitle = escapeQuotes(product.title);
+                card.innerHTML = `
+                    <div>
+                        <div class="relative overflow-hidden bg-slate-100 h-64">
+                            <img src="${product.image}" alt="${safeTitle}" 
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                onerror="this.src='https://placehold.co/400x500/be123c/ffffff?text=${encodeURIComponent(product.title)}'">
+                            ${product.badge ? `<span class="absolute top-3 left-3 bg-fashion-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">${product.badge}</span>` : ''}
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center space-x-1 text-amber-400 text-xs mb-1">
+                                <i class="fa-solid fa-star"></i>
+                                <span class="font-bold text-slate-700">${product.rating}</span>
+                                <span class="text-slate-400">(${product.reviews})</span>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-sm line-clamp-1">${product.title}</h3>
+                            <p class="text-xs text-slate-400 capitalize mt-0.5">${product.category} collection</p>
+                            <div class="mt-3 flex items-baseline space-x-2">
+                                <span class="text-lg font-extrabold text-fashion-600">৳ ${product.price}</span>
+                                ${product.oldPrice ? `<span class="text-xs text-slate-400 line-through">৳ ${product.oldPrice}</span>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 pt-0 grid grid-cols-2 gap-2 mt-2">
+                        <button onclick="addToCart(${product.id})" class="bg-fashion-50 hover:bg-fashion-100 text-fashion-700 font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-bag-shopping"></i> Add Bag
+                        </button>
+                        <button onclick="quickBuyWhatsApp(${product.id})" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(cat) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-fashion-600', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'text-slate-600');
+            });
+
+            if (cat === 'all') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category.toLowerCase() === cat.toLowerCase());
+                renderProducts(filtered);
+            }
+        }
+
+        function searchProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => 
+                p.title.toLowerCase().includes(query) || 
+                p.category.toLowerCase().includes(query)
+            );
+            renderProducts(filtered);
+        }
+
+        function addToCart(productId) {
+            const item = products.find(p => p.id === productId);
+            const existing = cart.find(c => c.id === productId);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...item, quantity: 1 });
+            }
+
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        function updateQuantity(productId, delta) {
+            const item = cart.find(c => c.id === productId);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(c => c.id !== productId);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            document.getElementById('cartCount').textContent = totalCount;
+            document.getElementById('cartSubtotal').textContent = `৳ ${subtotal.toFixed(2)}`;
+
+            const container = document.getElementById('cartItemsContainer');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16">
+                        <i class="fa-solid fa-bag-shopping text-5xl text-slate-200 mb-3"></i>
+                        <p class="text-slate-500 text-sm font-medium">Your shopping bag is empty.</p>
+                        <button onclick="toggleCart()" class="mt-4 text-xs text-fashion-600 font-bold hover:underline">Explore Fashion Items &rarr;</button>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = '';
+            cart.forEach(item => {
+                const el = document.createElement('div');
+                el.className = "py-3 flex items-center justify-between space-x-3";
+                el.innerHTML = `
+                    <img src="${item.image}" class="w-14 h-14 object-cover rounded-lg bg-slate-100 flex-shrink-0">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-xs font-bold text-slate-800 truncate">${item.title}</h4>
+                        <p class="text-xs text-fashion-600 font-bold mt-0.5">৳ ${item.price} x ${item.quantity}</p>
+                    </div>
+                    <div class="flex items-center space-x-2 bg-slate-100 rounded-lg p-1">
+                        <button onclick="updateQuantity(${item.id}, -1)" class="w-6 h-6 bg-white rounded text-xs font-bold text-slate-600 shadow-sm">-</button>
+                        <span class="text-xs font-bold w-4 text-center">${item.quantity}</span>
+                        <button onclick="updateQuantity(${item.id}, 1)" class="w-6 h-6 bg-white rounded text-xs font-bold text-slate-600 shadow-sm">+</button>
+                    </div>
+                `;
+                container.appendChild(el);
+            });
+        }
+
+        function toggleCart(forceOpen = false) {
+            const modal = document.getElementById('cartModal');
+            if (forceOpen) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.toggle('hidden');
+            }
+        }
+
+        function quickBuyWhatsApp(productId) {
+            const item = products.find(p => p.id === productId);
+            const text = `Hello Tashrifu Fashion! I want to order:\n- ${item.title} (Qty: 1) - Price: ৳${item.price}\nPlease confirm delivery to Jalalpur Bazar, Melandoho area.`;
+            const encoded = encodeURIComponent(text);
+            window.open(`https://wa.me/8801781877034?text=${encoded}`, '_blank');
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert("Your shopping bag is empty!");
+                return;
+            }
+
+            let text = "Hello Tashrifu Fashion! I want to place an order:\n\n";
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                text += `${index + 1}. ${item.title} x ${item.quantity} = ৳${itemTotal}\n`;
+            });
+
+            text += `\n*Total Order Amount:* ৳${total}\n`;
+            text += `*Location:* Jalalpur Bazar / Melandoho, Jamalpur\n\nPlease confirm availability and payment details. Thank you!`;
+
+            const encoded = encodeURIComponent(text);
+            window.open(`https://wa.me/8801781877034?text=${encoded}`, '_blank');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        window.onload = function() {
+            renderProducts(products);
+            updateCartUI();
+        };
+    </script>
+</body>
+</html>
